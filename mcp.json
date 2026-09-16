@@ -1,0 +1,26 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+	"mcpServers": {
+		"microsoft/markitdown": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"--system-certs",
+				"markitdown-mcp@0.0.1a4"
+			]
+		},
+		"filesystem": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-filesystem",
+				"${workspaceFolder}"
+			]
+		},
+		"com.atlassian/atlassian-mcp-server": {
+			"type": "streamable-http",
+			"url": "https://mcp.atlassian.com/v2/mcp"
+		}
+	}
+}
